@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomAutoSizeText extends StatelessWidget {
   const CustomAutoSizeText({
+    super.key,
     this.maxLines,
     this.fontSize,
     this.color,

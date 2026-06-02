@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
+    super.key,
     this.controller,
     this.focusNode,
     this.nextFocus,
@@ -65,7 +65,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       children: [
         widget.label != null
             ? Padding(
-                padding:  EdgeInsets.only(top: 2.h),
+                padding: EdgeInsets.only(top: 2.h),
                 child: Text(
                   widget.label!,
                   style:
@@ -81,7 +81,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           decoration: BoxDecoration(
             color:
                 widget.backgroundColor ??
-                ColorManager.primaryDark.withOpacity(.15),
+                ColorManager.primaryDark.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(8.r),
             border: Border.all(
               color: widget.borderBackgroundColor ?? ColorManager.transparent,
@@ -150,10 +150,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         errorText == null
             ? const SizedBox()
             : Padding(
-                padding: EdgeInsetsDirectional.only(
-                  top: 8.h,
-                  start: 8.w,
-                ),
+                padding: EdgeInsetsDirectional.only(top: 8.h, start: 8.w),
                 child: Text(
                   errorText!,
                   style: getMediumStyle(
