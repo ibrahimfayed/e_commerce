@@ -4,6 +4,8 @@ class ImageAssets {
   static const String launcherIcon = '$_imagePath/launcher_icon.png';
   static const String branding = '$_imagePath/branding.png';
   static const String android12splash = '$_imagePath/android12splash.png';
+  static const String onboardingBackground1 = '$_imagePath/onboardingBackground1.svg';
+  static const String onboardingBackground2 = '$_imagePath/onboardingBackground2.svg';
 }
 
 class SvgAssets {

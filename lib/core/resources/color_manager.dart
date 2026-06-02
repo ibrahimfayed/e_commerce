@@ -8,6 +8,9 @@ class ColorManager {
   static const Color gradiant1 = Color(0xff929AAB);
   static const Color gradiant2 = Color(0xff354155);
   static const Color gradiant3 = Color(0xff2A3446);
+  static const Color grey = Color(0xff4E5556);
+  static const Color green = Color(0xff1B5E37);
+  static const Color orange = Color(0xffF4A91F);
   static const Color black = Color(0xff000000);
   static const Color transparent = Colors.transparent;
   static const Color white = Color(0xffFFFFFF);

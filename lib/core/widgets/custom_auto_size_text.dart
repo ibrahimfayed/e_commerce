@@ -23,6 +23,7 @@ class CustomAutoSizeText extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoSizeText(
       data,
+      textAlign: TextAlign.center,
       softWrap: true,
       overflow: TextOverflow.ellipsis,
       maxLines: maxLines,
