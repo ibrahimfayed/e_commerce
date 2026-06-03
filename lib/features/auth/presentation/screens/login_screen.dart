@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     const Spacer(),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => Navigator.of(context).pushNamed(Routes.forgetPassword),
                       child: Text(
                         'Forget password?',
                         style: getSemiBoldStyle(color: ColorManager.green),

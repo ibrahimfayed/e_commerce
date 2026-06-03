@@ -1,0 +1,96 @@
+import 'package:e_commerce/core/resources/color_manager.dart';
+import 'package:e_commerce/core/resources/styles_manager.dart';
+import 'package:e_commerce/core/routes/routes.dart';
+import 'package:e_commerce/core/utils/validators.dart';
+import 'package:e_commerce/core/widgets/custom_auto_size_text.dart';
+import 'package:e_commerce/core/widgets/custom_elevated_button.dart';
+import 'package:e_commerce/core/widgets/custom_text_field.dart';
+import 'package:flutter/material.dart';
+
+class ForgetPasswordScreen extends StatefulWidget {
+  const ForgetPasswordScreen({super.key});
+
+  @override
+  State<ForgetPasswordScreen> createState() => _ForgetPasswordScreenState();
+}
+
+class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
+  final _emailController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Forget Password'),
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: const Icon(Icons.arrow_back_ios),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: .center,
+                  children: [
+                    CustomAutoSizeText(
+                      data: 'welcome to',
+                      textStyle: getBoldStyle(color: ColorManager.gradiant1),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'Accessory',
+                      style: getBoldStyle(color: ColorManager.green),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      'HUB',
+                      style: getBoldStyle(color: ColorManager.orange),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 32),
+                Text(
+                  "Don't worry, just enter your email address and we will send you a verification code.",
+                  style: getSemiBoldStyle(color: ColorManager.gradiant1),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 32),
+                CustomTextField(
+                  borderBackgroundColor: ColorManager.border,
+                  controller: _emailController,
+                  hint: 'Enter your email',
+                  backgroundColor: ColorManager.backgroundColor,
+                  validation: Validator.validateEmail,
+                ),
+                const SizedBox(height: 32),
+                CustomElevatedButton(
+                  innerPadding: const EdgeInsets.all(16),
+                  label: 'Reset Password',
+                  onTap: () =>
+                      Navigator.of(context).pushNamed(Routes.verifyCode),
+                  isStadiumBorder: false,
+                  radius: 16,
+                  backgroundColor: ColorManager.green,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

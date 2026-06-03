@@ -1,19 +1,35 @@
-
 import 'package:e_commerce/core/routes/routes.dart';
+import 'package:e_commerce/features/auth/presentation/screens/forget_password_screen.dart';
 import 'package:e_commerce/features/auth/presentation/screens/login_screen.dart';
+import 'package:e_commerce/features/auth/presentation/screens/new_password_screen.dart';
 import 'package:e_commerce/features/auth/presentation/screens/register_screen.dart';
+import 'package:e_commerce/features/auth/presentation/screens/verify_code_screen.dart';
 import 'package:e_commerce/features/onBoarding/presentation/screens/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
   static Route<dynamic>? getRoute(RouteSettings settings) {
-    switch (settings.name) { 
+    switch (settings.name) {
       case Routes.onBoarding:
-        return MaterialPageRoute(builder: (context) => const OnboardingScreen());
+        return MaterialPageRoute(
+          builder: (context) => const OnboardingScreen(),
+        );
       case Routes.login:
         return MaterialPageRoute(builder: (context) => const LoginScreen());
       case Routes.register:
         return MaterialPageRoute(builder: (context) => const RegisterScreen());
+      case Routes.forgetPassword:
+        return MaterialPageRoute(
+          builder: (context) => const ForgetPasswordScreen(),
+        );
+      case Routes.verifyCode:
+        return MaterialPageRoute(
+          builder: (context) => const VerifyCodeScreen(),
+        );
+      case Routes.newPassword:
+        return MaterialPageRoute(
+          builder: (context) => const NewPasswordScreen(),
+        );
       default:
         return null;
     }
