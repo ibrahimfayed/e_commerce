@@ -1,10 +1,8 @@
-import 'package:e_commerce/core/resources/assets_manager.dart';
 import 'package:e_commerce/core/resources/color_manager.dart';
 import 'package:e_commerce/core/resources/font_manager.dart';
 import 'package:e_commerce/core/resources/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -129,14 +127,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       splashRadius: 1.r,
                       isSelected: !hidden,
                       color: widget.cursorColor,
-                      selectedIcon: const Icon(Icons.visibility),
-                      icon: SvgPicture.asset(SvgAssets.visibilityOff),
+                      selectedIcon: const Icon(
+                        Icons.visibility_off,
+                        color: ColorManager.gradiant2,
+                      ),
+                      icon: const Icon(
+                        Icons.visibility,
+                        color: ColorManager.gradiant2,
+                      ),
                     )
                   : widget.suffixIcon,
               hintStyle:
                   widget.hintTextStyle ??
                   getRegularStyle(
-                    color: ColorManager.black,
+                    color: ColorManager.gradiant3,
                   ).copyWith(fontSize: 18.sp),
               border: InputBorder.none,
               enabledBorder: InputBorder.none,

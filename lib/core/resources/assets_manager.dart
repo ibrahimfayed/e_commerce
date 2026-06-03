@@ -9,12 +9,10 @@ class ImageAssets {
 }
 
 class SvgAssets {
-  static const String _svgPath = 'assets/svg';
-  static const String route = '$_svgPath/route.svg';
-  static const String visibilityOff = '$_svgPath/visibility_off.svg';
-  static const String edit = '$_svgPath/edit.svg';
 }
 
 class IconsAssets {
+  static const String _iconPath = 'assets/icons';
+  static const String google = '$_iconPath/google.svg';
 
 }

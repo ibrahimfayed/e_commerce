@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:e_commerce/core/app_preferences.dart';
+import 'package:e_commerce/core/app_theme.dart';
 import 'package:e_commerce/core/routes/route_generator.dart';
 import 'package:e_commerce/core/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,9 @@ class ECommerceApp  extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
         initialRoute: AppPreferences.onboardingViewed ? Routes.login : Routes.onBoarding,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.light,
       ),
     );
   }
