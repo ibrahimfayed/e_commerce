@@ -3,6 +3,7 @@ import 'package:e_commerce/core/resources/color_manager.dart';
 import 'package:e_commerce/core/resources/styles_manager.dart';
 import 'package:e_commerce/core/routes/routes.dart';
 import 'package:e_commerce/core/utils/validators.dart';
+import 'package:e_commerce/core/widgets/custom_auto_size_text.dart';
 import 'package:e_commerce/core/widgets/custom_elevated_button.dart';
 import 'package:e_commerce/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,27 @@ class _LoginScreenState extends State<LoginScreen> {
             key: _formKey,
             child: Column(
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: .center,
+                  children: [
+                    CustomAutoSizeText(
+                      data: 'welcome to',
+                      textStyle: getBoldStyle(color: ColorManager.gradiant1),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'Accessory',
+                      style: getBoldStyle(color: ColorManager.green),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      'HUB',
+                      style: getBoldStyle(color: ColorManager.orange),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 32),
                 CustomTextField(
                   borderBackgroundColor: ColorManager.border,
                   controller: _emailController,

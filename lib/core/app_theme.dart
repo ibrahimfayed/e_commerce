@@ -6,9 +6,9 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
     appBarTheme: AppBarThemeData(
       backgroundColor: ColorManager.white,
-      foregroundColor: ColorManager.black,
+      foregroundColor: ColorManager.green,
       centerTitle: true,
-      titleTextStyle: getBoldStyle(color: ColorManager.black),
+      titleTextStyle: getBoldStyle(color: ColorManager.green, fontSize: 20),
     ),
     scaffoldBackgroundColor: ColorManager.white,
   );
