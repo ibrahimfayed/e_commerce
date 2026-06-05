@@ -26,7 +26,7 @@ class OptFiled extends StatelessWidget {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(color: ColorManager.orange, width: 2),
+            borderSide: const BorderSide(color: ColorManager.secColor, width: 2),
           ),
         ),
         onChanged: (value) {

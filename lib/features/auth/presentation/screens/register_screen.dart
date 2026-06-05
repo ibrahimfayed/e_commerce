@@ -57,7 +57,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     style: getBoldStyle(color: ColorManager.green),
                   ),
                   const SizedBox(width: 4),
-                  Text('HUB', style: getBoldStyle(color: ColorManager.orange)),
+                  Text('HUB', style: getBoldStyle(color: ColorManager.secColor)),
                 ],
               ),
                 const SizedBox(height: 32),

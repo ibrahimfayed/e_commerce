@@ -5,4 +5,6 @@ class Routes {
   static const forgetPassword = 'forget password';
   static const verifyCode = 'Verify Code';
   static const newPassword = 'New Password';
+  static const main = 'main';
+  static const search = 'search';
 }

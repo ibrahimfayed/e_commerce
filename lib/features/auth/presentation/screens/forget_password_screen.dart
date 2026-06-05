@@ -58,7 +58,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     const SizedBox(width: 4),
                     Text(
                       'HUB',
-                      style: getBoldStyle(color: ColorManager.orange),
+                      style: getBoldStyle(color: ColorManager.secColor),
                     ),
                   ],
                 ),

@@ -18,7 +18,7 @@ class OnBoardingModel {
   static List<OnBoardingModel> onBoardingModels = [
     OnBoardingModel(
       image: ImageAssets.logo,
-      backgroundImage: ImageAssets.onboardingBackground1,
+      backgroundImage: SvgAssets.onboardingBackground1,
       title: 'Welcome to',
       description:
           "Discover a world of elegance with AccessoryHUB. Explore our wide collection of trendy, high-quality accessories and enjoy the best deals.",
@@ -26,7 +26,7 @@ class OnBoardingModel {
     ),
     OnBoardingModel(
       image: ImageAssets.logo,
-      backgroundImage: ImageAssets.onboardingBackground2,
+      backgroundImage: SvgAssets.onboardingBackground2,
       title: 'Shop with Style',
       description:
           'We offer carefully selected accessories for every taste. Browse photos, read details and reviews, and find the perfect piece to match your style.',

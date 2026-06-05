@@ -46,7 +46,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                   const SizedBox(width: 4),
                   Text(
                     'HUB',
-                    style: getBoldStyle(color: ColorManager.orange),
+                    style: getBoldStyle(color: ColorManager.secColor),
                   ),
                 ],
               ),

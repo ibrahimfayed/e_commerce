@@ -1,0 +1,58 @@
+import 'package:e_commerce/core/resources/color_manager.dart';
+import 'package:e_commerce/core/resources/styles_manager.dart';
+import 'package:e_commerce/core/routes/routes.dart';
+import 'package:e_commerce/core/widgets/search_text_field.dart';
+import 'package:e_commerce/features/categories/presentation/widgets/categories_list_view.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class CategoriesTab extends StatelessWidget {
+  const CategoriesTab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Categories',style: getBoldStyle(color: ColorManager.backgroundDark,fontSize: 19.sp),),
+      ),
+
+      body: 
+      CustomScrollView(
+      slivers: [
+        // search field
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Column(
+              children: [
+                 SizedBox(height: 16.h,),
+                 GestureDetector(
+                  onTap: () => Navigator.pushNamed(context, Routes.search),
+                  child: SearchTextField(
+                    enabled: false,
+                    hint: 'What are you looking for?',//hint: S.of(context).homeSearchHint,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        SliverToBoxAdapter(
+          child: Padding(
+            padding:  EdgeInsetsDirectional.all(16.w),
+            child: Text('Our Categories',style: getBoldStyle(color: ColorManager.backgroundDark,fontSize: 16.sp),)
+            //Text(S.current.ourProduct, style: TextStyles.bold16),
+          ),
+        ),
+
+         CategoriesListView(),
+
+        // const ProductsGridViewBlocConsumer(),
+        SliverToBoxAdapter(child: SizedBox(height: 16.h,)),
+      ],
+    )
+
+    );
+  }
+}

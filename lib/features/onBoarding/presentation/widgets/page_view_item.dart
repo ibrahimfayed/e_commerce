@@ -56,7 +56,7 @@ class PageViewItem extends StatelessWidget {
                         child: Text(
                           onBoardingModel.buttonName,
                           style: getMediumStyle(
-                            color: ColorManager.primary,
+                            color: ColorManager.steelGray,
                             fontSize: FontSize.s16,
                           ),
                         ),
@@ -81,7 +81,7 @@ class PageViewItem extends StatelessWidget {
                     style: getBoldStyle(color: ColorManager.green),
                   ),
                   const SizedBox(width: 4),
-                  Text('HUB', style: getBoldStyle(color: ColorManager.orange)),
+                  Text('HUB', style: getBoldStyle(color: ColorManager.secColor)),
                 ],
               )
             : CustomAutoSizeText(

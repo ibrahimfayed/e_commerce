@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FontConstants {
-  static const String fontFamily = 'Poppins';
-  //static const String fontFamily = 'Inter';
+  //static const String fontFamily = 'Poppins';
+  static const String fontFamily = 'cairo';
 }
 
 class FontWeightManager {
