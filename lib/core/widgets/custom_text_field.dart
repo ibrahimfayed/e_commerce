@@ -99,23 +99,24 @@ class _CustomTextFieldState extends State<CustomTextField> {
             obscuringCharacter: '*',
             cursorColor: widget.cursorColor ?? ColorManager.black,
             onTap: widget.onTap,
-            onEditingComplete: () {
-              widget.focusNode?.unfocus();
+            onChanged: (value) {
+              if (widget.validation != null) {
+                setState(() {
+                  errorText = widget.validation!(value);
+                });
+              }
+            },
+            onFieldSubmitted: (_) {
               if (widget.nextFocus != null) {
                 FocusScope.of(context).requestFocus(widget.nextFocus);
+              } else {
+                FocusScope.of(context).unfocus(); // Close keyboard
               }
             },
             textInputAction: widget.nextFocus == null
                 ? TextInputAction.done
                 : TextInputAction.next,
-            validator: (value) {
-              if (widget.validation == null) {
-                setState(() => errorText = null);
-              } else {
-                setState(() => errorText = widget.validation!(value));
-              }
-              return errorText;
-            },
+            validator: widget.validation,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.all(12.sp),
               hintText: widget.hint,

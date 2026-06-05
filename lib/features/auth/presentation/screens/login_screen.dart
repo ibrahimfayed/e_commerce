@@ -2,11 +2,16 @@ import 'package:e_commerce/core/resources/assets_manager.dart';
 import 'package:e_commerce/core/resources/color_manager.dart';
 import 'package:e_commerce/core/resources/styles_manager.dart';
 import 'package:e_commerce/core/routes/routes.dart';
+import 'package:e_commerce/core/utils/ui_utils.dart';
 import 'package:e_commerce/core/utils/validators.dart';
 import 'package:e_commerce/core/widgets/custom_auto_size_text.dart';
 import 'package:e_commerce/core/widgets/custom_elevated_button.dart';
 import 'package:e_commerce/core/widgets/custom_text_field.dart';
+import 'package:e_commerce/features/auth/data/models/login_request.dart';
+import 'package:e_commerce/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/cubit/auth_states.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -83,7 +88,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     const Spacer(),
                     GestureDetector(
-                      onTap: () => Navigator.of(context).pushNamed(Routes.forgetPassword),
+                      onTap: () => Navigator.of(
+                        context,
+                      ).pushNamed(Routes.forgetPassword),
                       child: Text(
                         'Forget password?',
                         style: getSemiBoldStyle(color: ColorManager.green),
@@ -92,13 +99,35 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 const SizedBox(height: 32),
-                CustomElevatedButton(
-                  innerPadding: const EdgeInsets.all(16),
-                  label: 'Login',
-                  onTap: () {},
-                  isStadiumBorder: false,
-                  radius: 16,
-                  backgroundColor: ColorManager.green,
+                BlocListener<AuthCubit, AuthState>(
+                  listener: (context, state) {
+                    if (state is LoginLoading) {
+                      UIUtils.showLoading(context);
+                    } else if (state is LoginSuccess) {
+                      UIUtils.hideLoading(context);
+                      Navigator.of(context).pushReplacementNamed(Routes.home);
+                    } else if (state is LoginError) {
+                      UIUtils.hideLoading(context);
+                      UIUtils.showMessage(state.message);
+                    }
+                  },
+                  child: CustomElevatedButton(
+                    innerPadding: const EdgeInsets.all(16),
+                    label: 'Login',
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        context.read<AuthCubit>().login(
+                          LoginRequest(
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          ),
+                        );
+                      }
+                    },
+                    isStadiumBorder: false,
+                    radius: 16,
+                    backgroundColor: ColorManager.green,
+                  ),
                 ),
                 const SizedBox(height: 40),
                 Row(

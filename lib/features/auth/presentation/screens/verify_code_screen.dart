@@ -14,7 +14,11 @@ class VerifyCodeScreen extends StatefulWidget {
 }
 
 class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
-  
+  final List<TextEditingController> otpControllers = List.generate(
+    6,
+    (_) => TextEditingController(),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +48,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                     style: getBoldStyle(color: ColorManager.green),
                   ),
                   const SizedBox(width: 4),
+
                   Text(
                     'HUB',
                     style: getBoldStyle(color: ColorManager.secColor),
@@ -60,10 +65,10 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  OptFiled(),
-                  OptFiled(),
-                  OptFiled(),
-                  OptFiled(),
+                  OptFiled(controller: otpControllers[0]),
+                  OptFiled(controller: otpControllers[1]),
+                  OptFiled(controller: otpControllers[2]),
+                  OptFiled(controller: otpControllers[3]),
                 ],
               ),
               const SizedBox(height: 32),

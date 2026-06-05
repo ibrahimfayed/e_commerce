@@ -6,6 +6,7 @@ import 'package:e_commerce/features/auth/presentation/screens/new_password_scree
 import 'package:e_commerce/features/auth/presentation/screens/register_screen.dart';
 import 'package:e_commerce/features/auth/presentation/screens/verify_code_screen.dart';
 import 'package:e_commerce/core/main_screen.dart';
+import 'package:e_commerce/features/auth/presentation/screens/verify_email_screen.dart';
 import 'package:e_commerce/features/onBoarding/presentation/screens/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -36,6 +37,11 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const MainScreen()); 
       case Routes.search:
         return MaterialPageRoute(builder: (_) => const SearchScreen());   
+      case Routes.verifyEmail:
+        final email = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (context) => VerifyEmailScreen(email: email),
+        );
       default:
         return null;
     }

@@ -1,11 +1,16 @@
 import 'package:e_commerce/core/resources/color_manager.dart';
 import 'package:e_commerce/core/resources/styles_manager.dart';
 import 'package:e_commerce/core/routes/routes.dart';
+import 'package:e_commerce/core/utils/ui_utils.dart';
 import 'package:e_commerce/core/utils/validators.dart';
 import 'package:e_commerce/core/widgets/custom_auto_size_text.dart';
 import 'package:e_commerce/core/widgets/custom_elevated_button.dart';
 import 'package:e_commerce/core/widgets/custom_text_field.dart';
+import 'package:e_commerce/features/auth/data/models/register_request.dart';
+import 'package:e_commerce/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/cubit/auth_states.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -45,21 +50,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 SizedBox(height: 16),
                 Row(
-                mainAxisAlignment: .center,
-                children: [
-                  CustomAutoSizeText(
-                    data: 'welcome to',
-                    textStyle: getBoldStyle(color: ColorManager.gradiant1),
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    'Accessory',
-                    style: getBoldStyle(color: ColorManager.green),
-                  ),
-                  const SizedBox(width: 4),
-                  Text('HUB', style: getBoldStyle(color: ColorManager.secColor)),
-                ],
-              ),
+                  mainAxisAlignment: .center,
+                  children: [
+                    CustomAutoSizeText(
+                      data: 'welcome to',
+                      textStyle: getBoldStyle(color: ColorManager.gradiant1),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'Accessory',
+                      style: getBoldStyle(color: ColorManager.green),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      'HUB',
+                      style: getBoldStyle(color: ColorManager.secColor),
+                    ),
+                  ],
+                ),
+
                 const SizedBox(height: 32),
                 CustomTextField(
                   borderBackgroundColor: ColorManager.border,
@@ -100,16 +109,46 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   hint: 'Confirm your password',
                   backgroundColor: ColorManager.backgroundColor,
                   isObscured: true,
-                  validation: (value) => Validator.validateConfirmPassword(value, _passwordController.text),
+                  validation: (value) => Validator.validateConfirmPassword(
+                    value,
+                    _passwordController.text,
+                  ),
                 ),
                 const SizedBox(height: 32),
-                CustomElevatedButton(
-                  innerPadding: const EdgeInsets.all(16),
-                  label: 'Register',
-                  onTap: () {},
-                  isStadiumBorder: false,
-                  radius: 16,
-                  backgroundColor: ColorManager.green,
+                BlocListener<AuthCubit, AuthState>(
+                  listener: (context, state) {
+                    if (state is RegisterLoading) {
+                      UIUtils.showLoading(context);
+                    } else if (state is RegisterSuccess) {
+                      UIUtils.hideLoading(context);
+                      Navigator.of(context).pushReplacementNamed(
+                        Routes.verifyEmail,
+                        arguments: _emailController.text,
+                      );
+                    } else if (state is RegisterError) {
+                      UIUtils.hideLoading(context);
+                      UIUtils.showMessage(state.message);
+                    }
+                  },
+                  child: CustomElevatedButton(
+                    innerPadding: const EdgeInsets.all(16),
+                    label: 'Register',
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        context.read<AuthCubit>().register(
+                          RegisterRequest(
+                            firstName: _fNameController.text,
+                            lastName: _lNameController.text,
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          ),
+                        );
+                      }
+                    },
+                    isStadiumBorder: false,
+                    radius: 16,
+                    backgroundColor: ColorManager.green,
+                  ),
                 ),
                 const SizedBox(height: 40),
                 Row(

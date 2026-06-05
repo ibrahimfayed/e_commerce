@@ -4,6 +4,7 @@ class Routes {
   static const register = 'register';
   static const forgetPassword = 'forget password';
   static const verifyCode = 'Verify Code';
+  static const verifyEmail = 'Verify Email';
   static const newPassword = 'New Password';
   static const main = 'main';
   static const search = 'search';

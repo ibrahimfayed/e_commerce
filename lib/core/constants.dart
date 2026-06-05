@@ -1,10 +1,13 @@
 class APIConstants {
-  // static const String baseUrl = 'https://ecommerce.routemisr.com/api/v1/';
+  static const String baseUrl = 'https://accessories-eshop.runasp.net/api/';
   // static const String tokenHeaderKey = 'token';
-  // static const String loginEndpoint = 'auth/signin';
-  
+  static const String registerEndpoint = 'auth/register';
+  static const String loginEndpoint = 'auth/login';
+  static const String verifyEmailEndpoint = 'auth/verify-email';
+  static const String resendOtpEndpoint = 'auth/resend-otp';
 }
 
 class CacheKeys {
-  // static const String token = 'token';
+  static const String refreshToken = 'refreshToken';
+  static const String accessToken = 'accessToken';
 }
