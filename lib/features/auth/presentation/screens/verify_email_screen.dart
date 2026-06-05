@@ -24,12 +24,24 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
     6,
     (_) => TextEditingController(),
   );
+
+  @override
+  void dispose() {
+    for (final controller in otpControllers) {
+      controller.dispose();
+    }
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final boxSize = MediaQuery.of(context).size.width * .12;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Verify Email')),
+      appBar: AppBar(title: const Text('Verify Email'),
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).pushReplacementNamed(Routes.login),
+          icon: const Icon(Icons.arrow_back_ios),
+        ),),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
@@ -72,7 +84,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                     const SizedBox(width: 4),
                     Text(
                       'HUB',
-                      style: getBoldStyle(color: ColorManager.orange),
+                      style: getBoldStyle(color: ColorManager.secColor),
                     ),
                   ],
                 ),
@@ -82,16 +94,22 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                   style: getSemiBoldStyle(color: ColorManager.gradiant1),
                   textAlign: TextAlign.center,
                 ),
+                const SizedBox(height: 8),
+                Text(
+                  widget.email,
+                  style: getSemiBoldStyle(color: ColorManager.green),
+                  textAlign: TextAlign.center,
+                ),
                 const SizedBox(height: 32),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    OptFiled(size: boxSize, controller: otpControllers[0]),
-                    OptFiled(size: boxSize, controller: otpControllers[1]),
-                    OptFiled(size: boxSize, controller: otpControllers[2]),
-                    OptFiled(size: boxSize, controller: otpControllers[3]),
-                    OptFiled(size: boxSize, controller: otpControllers[4]),
-                    OptFiled(size: boxSize, controller: otpControllers[5]),
+                    OptFiled(controller: otpControllers[0]),
+                    OptFiled(controller: otpControllers[1]),
+                    OptFiled(controller: otpControllers[2]),
+                    OptFiled(controller: otpControllers[3]),
+                    OptFiled(controller: otpControllers[4]),
+                    OptFiled(controller: otpControllers[5]),
                   ],
                 ),
                 const SizedBox(height: 32),

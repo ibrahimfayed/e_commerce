@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       UIUtils.showLoading(context);
                     } else if (state is LoginSuccess) {
                       UIUtils.hideLoading(context);
-                      Navigator.of(context).pushReplacementNamed(Routes.home);
+                      Navigator.of(context).pushReplacementNamed(Routes.main);
                     } else if (state is LoginError) {
                       UIUtils.hideLoading(context);
                       UIUtils.showMessage(state.message);

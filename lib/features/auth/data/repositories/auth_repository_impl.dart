@@ -59,4 +59,34 @@ class AuthRepositoryImpl implements AuthRepository {
       return left(Failure(message: exception.message));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> forgotPassword({required String email}) async {
+    try {
+      await _remoteDataSource.forgotPassword(email: email);
+      return Right(null);
+    } on AppException catch (exception) {
+      return left(Failure(message: exception.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> validateOtp({required String email, required String code}) async {
+    try {
+      await _remoteDataSource.validateOtp(email: email, code: code);
+      return Right(null);
+    } on AppException catch (exception) {
+      return left(Failure(message: exception.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> resetPassword({required String email, required String code, required String newPassword}) async {
+    try {
+      await _remoteDataSource.resetPassword(email: email, code: code, newPassword: newPassword);
+      return Right(null);
+    } on AppException catch (exception) {
+      return left(Failure(message: exception.message));
+    }
+  }
 }

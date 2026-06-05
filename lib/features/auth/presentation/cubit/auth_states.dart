@@ -41,3 +41,33 @@ class ResendOtpError extends AuthState {
 
   ResendOtpError(this.message);
 }
+
+class ValidateOtpLoading extends AuthState {}
+
+class ValidateOtpSuccess extends AuthState {}
+
+class ValidateOtpError extends AuthState {
+  final String message;
+
+  ValidateOtpError(this.message);
+}
+
+class ForgotPasswordLoading extends AuthState {}
+
+class ForgotPasswordSuccess extends AuthState {}
+
+class ForgotPasswordError extends AuthState {
+  final String message;
+
+  ForgotPasswordError(this.message);
+}
+
+class ResetPasswordLoading extends AuthState {}
+
+class ResetPasswordSuccess extends AuthState {}
+
+class ResetPasswordError extends AuthState {
+  final String message;
+
+  ResetPasswordError(this.message);
+}

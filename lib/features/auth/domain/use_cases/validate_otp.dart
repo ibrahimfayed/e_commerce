@@ -4,11 +4,11 @@ import 'package:e_commerce/features/auth/domain/repositories/auh_repository.dart
 import 'package:injectable/injectable.dart';
 
 @singleton
-class VerifyEmail {
+class ValidateOtp {
   final AuthRepository _repository;
 
-  const VerifyEmail(this._repository);
+  const ValidateOtp(this._repository);
 
   Future<Either<Failure, void>> call(String email, String code) =>
-      _repository.verifyEmail(email: email, code: code);
+      _repository.validateOtp(email: email, code: code);
 }

@@ -23,11 +23,17 @@ import 'package:e_commerce/features/auth/data/repositories/auth_repository_impl.
     as _i22;
 import 'package:e_commerce/features/auth/domain/repositories/auh_repository.dart'
     as _i542;
+import 'package:e_commerce/features/auth/domain/use_cases/forgot_password.dart'
+    as _i563;
 import 'package:e_commerce/features/auth/domain/use_cases/login.dart' as _i115;
 import 'package:e_commerce/features/auth/domain/use_cases/register.dart'
     as _i906;
 import 'package:e_commerce/features/auth/domain/use_cases/resend_otp.dart'
     as _i209;
+import 'package:e_commerce/features/auth/domain/use_cases/reset_password.dart'
+    as _i568;
+import 'package:e_commerce/features/auth/domain/use_cases/validate_otp.dart'
+    as _i1065;
 import 'package:e_commerce/features/auth/domain/use_cases/verify_email.dart'
     as _i853;
 import 'package:e_commerce/features/auth/presentation/cubit/auth_cubit.dart'
@@ -61,12 +67,21 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i371.AuthLocalDataSource>(),
       ),
     );
+    gh.singleton<_i563.ForgotPassword>(
+      () => _i563.ForgotPassword(gh<_i542.AuthRepository>()),
+    );
     gh.singleton<_i115.Login>(() => _i115.Login(gh<_i542.AuthRepository>()));
     gh.singleton<_i906.Register>(
       () => _i906.Register(gh<_i542.AuthRepository>()),
     );
     gh.singleton<_i209.ResendOtp>(
       () => _i209.ResendOtp(gh<_i542.AuthRepository>()),
+    );
+    gh.singleton<_i568.ResetPassword>(
+      () => _i568.ResetPassword(gh<_i542.AuthRepository>()),
+    );
+    gh.singleton<_i1065.ValidateOtp>(
+      () => _i1065.ValidateOtp(gh<_i542.AuthRepository>()),
     );
     gh.singleton<_i853.VerifyEmail>(
       () => _i853.VerifyEmail(gh<_i542.AuthRepository>()),
@@ -77,6 +92,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i115.Login>(),
         gh<_i853.VerifyEmail>(),
         gh<_i209.ResendOtp>(),
+        gh<_i563.ForgotPassword>(),
+        gh<_i568.ResetPassword>(),
+        gh<_i1065.ValidateOtp>(),
       ),
     );
     return this;

@@ -3,14 +3,13 @@ import 'package:e_commerce/core/resources/styles_manager.dart';
 import 'package:flutter/material.dart';
 
 class OptFiled extends StatelessWidget {
-  const OptFiled({super.key,this.size, required this.controller});
+  const OptFiled({super.key, required this.controller});
 
-  final double? size;
   final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
-    final boxSize = size ?? MediaQuery.of(context).size.width * .2;
+    final boxSize = MediaQuery.of(context).size.width * .12;
     return SizedBox(
       width: boxSize,
       height: boxSize,
@@ -19,7 +18,10 @@ class OptFiled extends StatelessWidget {
         keyboardType: TextInputType.number,
         maxLength: 1,
         controller: controller,
-        style: getBoldStyle(color: ColorManager.black, fontSize: size == null ? 24 : 16),
+        style: getBoldStyle(
+          color: ColorManager.black,
+          fontSize: 16,
+        ),
         decoration: InputDecoration(
           counterText: '',
           filled: true,

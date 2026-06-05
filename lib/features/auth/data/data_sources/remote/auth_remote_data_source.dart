@@ -10,4 +10,10 @@ abstract class AuthRemoteDataSource {
   Future<void> verifyEmail({required String code, required String email});
 
   Future<void> resendOtp({required String email});
+
+  Future<void> forgotPassword({required String email});
+
+  Future<void> validateOtp({required String email, required String code});
+  
+  Future<void> resetPassword({required String email, required String code, required String newPassword});
 }

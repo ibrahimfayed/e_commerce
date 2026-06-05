@@ -52,7 +52,7 @@ class AuthApiRemoteDataSource implements AuthRemoteDataSource {
     try {
       await _dio.post(
         APIConstants.verifyEmailEndpoint,
-        data: {'otp': code, 'email': email},
+        data: {'email': email, 'otp': code},
       );
     } catch (exception) {
       String? message;
@@ -66,13 +66,68 @@ class AuthApiRemoteDataSource implements AuthRemoteDataSource {
   @override
   Future<void> resendOtp({required String email}) async {
     try {
-      await _dio.post(APIConstants.resendOtpEndpoint, data: {'email': email});
+      await _dio.post('APIConstants.resendOtpEndpoint', data: {'email': email});
     } catch (exception) {
       String? message;
       if (exception is DioException) {
         message = ErrorHelper.getMessage(exception.response?.data);
       }
       throw RemoteException(message ?? 'Failed to resend OTP');
+    }
+  }
+
+  @override
+  Future<void> forgotPassword({required String email}) async {
+    try {
+      await _dio.post(
+        APIConstants.forgotPasswordEndpoint,
+        data: {'email': email},
+      );
+    } catch (exception) {
+      String? message;
+      if (exception is DioException) {
+        message = ErrorHelper.getMessage(exception.response?.data);
+      }
+      throw RemoteException(message ?? 'Failed to reset password');
+    }
+  }
+
+  @override
+  Future<void> validateOtp({
+    required String email,
+    required String code,
+  }) async {
+    try {
+      await _dio.post(
+        APIConstants.validateOtpEndpoint,
+        data: {'email': email.trim().toLowerCase(), 'otp': code.trim()},
+      );
+    } catch (exception) {
+      String? message;
+      if (exception is DioException) {
+        message = ErrorHelper.getMessage(exception.response?.data);
+      }
+      throw RemoteException(message ?? 'Failed to validate OTP code');
+    }
+  }
+
+  @override
+  Future<void> resetPassword({
+    required String email,
+    required String code,
+    required String newPassword,
+  }) async {
+    try {
+      await _dio.post(
+        APIConstants.resetPasswordEndpoint,
+        data: {'email': email, 'otp': code, 'newPassword': newPassword},
+      );
+    } catch (exception) {
+      String? message;
+      if (exception is DioException) {
+        message = ErrorHelper.getMessage(exception.response?.data);
+      }
+      throw RemoteException(message ?? 'Failed to reset password');
     }
   }
 }
