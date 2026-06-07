@@ -16,7 +16,7 @@ class RouteGenerator {
       case Routes.onBoarding:
         return MaterialPageRoute(
           builder: (context) => const OnboardingScreen(),
-        );  
+        );
       case Routes.login:
         return MaterialPageRoute(builder: (context) => const LoginScreen());
       case Routes.register:
@@ -38,14 +38,18 @@ class RouteGenerator {
           builder: (context) => NewPasswordScreen(email: email, code: code),
         );
       case Routes.main:
-        return MaterialPageRoute(builder: (_) => const MainScreen()); 
+        return MaterialPageRoute(builder: (_) => const MainScreen());
       case Routes.search:
+<<<<<<< Updated upstream
         return MaterialPageRoute(builder: (_) => const SearchScreen());   
       case Routes.verifyEmail:
         final email = settings.arguments as String;
         return MaterialPageRoute(
           builder: (context) => VerifyEmailScreen(email: email),
         );
+=======
+        return MaterialPageRoute(builder: (_) => const SearchScreen());
+>>>>>>> Stashed changes
       default:
         return null;
     }

@@ -81,7 +81,10 @@ class PageViewItem extends StatelessWidget {
                     style: getBoldStyle(color: ColorManager.green),
                   ),
                   const SizedBox(width: 4),
-                  Text('HUB', style: getBoldStyle(color: ColorManager.secColor)),
+                  Text(
+                    'HUB',
+                    style: getBoldStyle(color: ColorManager.secColor),
+                  ),
                 ],
               )
             : CustomAutoSizeText(

@@ -27,12 +27,7 @@ class _MainScreenState extends State<MainScreen> {
       body: SafeArea(
         child: LazyIndexedStack(
           index: curPage,
-          children:  [
-            HomeTab(),
-            CategoriesTab(),
-            CartTab(),
-            ProfileTab(),
-          ],
+          children: [HomeTab(), CategoriesTab(), CartTab(), ProfileTab()],
         ),
       ),
     );

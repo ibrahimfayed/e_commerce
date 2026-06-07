@@ -23,7 +23,8 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
         ),
-        color: ColorManager.white,//Theme.of(context).navigationBarTheme.backgroundColor
+        color: ColorManager
+            .white, //Theme.of(context).navigationBarTheme.backgroundColor
         boxShadow: const [
           BoxShadow(
             color: Color.fromARGB(29, 0, 0, 0),
@@ -36,10 +37,9 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         unselectedItemColor: ColorManager.grey,
         selectedItemColor: ColorManager.primaryColor,
-        itemPadding:
-            Localizations.localeOf(context).languageCode == 'ar'
-                ? const EdgeInsets.only(top: 0, left: 15)
-                : const EdgeInsets.only(top: 0, right: 15),
+        itemPadding: Localizations.localeOf(context).languageCode == 'ar'
+            ? const EdgeInsets.only(top: 0, left: 15)
+            : const EdgeInsets.only(top: 0, right: 15),
 
         currentIndex: _currentIndex,
         onTap: (i) {
@@ -49,22 +49,22 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
         },
         items: [
           navBarItem(
-            title: 'Home',//S.of(context).home
+            title: 'Home', //S.of(context).home
             inActiveIcon: IconsAssets.imagesVuesaxOutlineHome,
             activeIcon: IconsAssets.imagesVuesaxBoldHome,
           ),
           navBarItem(
-            title: 'Categories',//S.of(context).categories
+            title: 'Categories', //S.of(context).categories
             inActiveIcon: IconsAssets.imagesVuesaxOutlineProducts,
             activeIcon: IconsAssets.imagesVuesaxBoldProducts,
           ),
           navBarItem(
-            title: 'Cart',//S.of(context).cart
+            title: 'Cart', //S.of(context).cart
             inActiveIcon: IconsAssets.imagesVuesaxOutlineShoppingCart,
             activeIcon: IconsAssets.imagesVuesaxBoldShoppingCart,
           ),
           navBarItem(
-            title: 'Profile',//S.of(context).profile,
+            title: 'Profile', //S.of(context).profile,
             inActiveIcon: IconsAssets.imagesVuesaxOutlineUser,
             activeIcon: IconsAssets.imagesVuesaxBoldUser,
           ),
@@ -89,19 +89,19 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
           clipBehavior: Clip.none,
           children: [
             //if (isCart && cartCount > 0)
-              // Positioned(
-              //   right: 0,
-              //   top: 5,
-              //   child: CircleAvatar(
-              //     backgroundColor: ColorManager.primaryColor,
-              //     radius: 9,
-              //     child: 
-              //     Text(
-              //       'cart',//cartCount.toString(),
-              //       style: const TextStyle(color: Colors.white, fontSize: 10),
-              //     ),
-              //   ),
-              // ),
+            // Positioned(
+            //   right: 0,
+            //   top: 5,
+            //   child: CircleAvatar(
+            //     backgroundColor: ColorManager.primaryColor,
+            //     radius: 9,
+            //     child:
+            //     Text(
+            //       'cart',//cartCount.toString(),
+            //       style: const TextStyle(color: Colors.white, fontSize: 10),
+            //     ),
+            //   ),
+            // ),
             Center(child: SvgPicture.asset(inActiveIcon, height: 22)),
           ],
         ),
@@ -111,7 +111,10 @@ class _CustomButtomNavBarState extends State<CustomButtomNavBar> {
         radius: 20,
         child: SvgPicture.asset(activeIcon, height: 22),
       ),
-      title: Text("   $title",style: getSemiBoldStyle(color: ColorManager.primaryColor)),
+      title: Text(
+        "   $title",
+        style: getSemiBoldStyle(color: ColorManager.primaryColor),
+      ),
     );
   }
 }

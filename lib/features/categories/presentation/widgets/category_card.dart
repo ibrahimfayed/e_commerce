@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/resources/color_manager.dart';
 import 'package:e_commerce/core/resources/styles_manager.dart';
+import 'package:e_commerce/features/categories/domain/entities/category_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryCard extends StatelessWidget {
-  const CategoryCard({super.key});
-  //final CategoryModel category;
+  const CategoryCard(this.category);
+  final CategoryEntity category;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,8 @@ class CategoryCard extends StatelessWidget {
             padding: EdgeInsets.all(15.sp),
             child: CachedNetworkImage(
               imageUrl:
-                  'https://s.turbifycdn.com/aah/yhst-92803816272180/jbw-jb-6219-g-krypton-mens-chronograph-quartz-watch-22.jpg',
+                  category.coverPictureUrl ??
+                  'https://www.shutterstock.com/image-vector/error-500-page-empty-symbol-260nw-1711106146.jpg',
               placeholder: (context, url) => const Center(
                 child: CircularProgressIndicator(
                   color: ColorManager.primaryColor,
@@ -37,7 +39,7 @@ class CategoryCard extends StatelessWidget {
           ),
           SizedBox(height: 8.h),
           Text(
-            'categoryName',
+            category.name,
             style: getBoldStyle(
               color: ColorManager.backgroundDark,
               fontSize: 16.sp,

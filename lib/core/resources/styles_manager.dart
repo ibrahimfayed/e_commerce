@@ -1,8 +1,6 @@
-
 import 'package:e_commerce/core/resources/color_manager.dart';
 import 'package:e_commerce/core/resources/font_manager.dart';
 import 'package:flutter/material.dart';
-
 
 TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) =>
     TextStyle(

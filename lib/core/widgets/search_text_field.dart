@@ -31,7 +31,6 @@ class _SearchTextFieldState extends State<SearchTextField> {
   //   controller.dispose();
   //   super.dispose();
   // }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,14 +39,14 @@ class _SearchTextFieldState extends State<SearchTextField> {
         borderRadius: BorderRadius.all(Radius.circular(4)),
         boxShadow: [
           BoxShadow(
-            color: ColorManager.white,//Color.fromARGB(11, 0, 0, 0)
+            color: ColorManager.white, //Color.fromARGB(11, 0, 0, 0)
             blurRadius: 9,
             offset: Offset(0, 2),
           ),
         ],
       ),
-      child:TextField(
-          onTap: () {
+      child: TextField(
+        onTap: () {
           if (!widget.enabled) {
             Navigator.pushNamed(context, Routes.search);
           }
@@ -56,7 +55,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
         decoration: customDecoration(context),
         cursorColor: ColorManager.primaryColor,
         textInputAction: TextInputAction.search,
-      )
+      ),
       //  LanguageToolTextField(
       //   //controller: controller,
       //   onTextSubmitted: widget.onSubmitted,
@@ -75,11 +74,16 @@ class _SearchTextFieldState extends State<SearchTextField> {
   }
 
   InputDecoration customDecoration(BuildContext context) {
-    return InputDecoration( 
-      hintText: 'What are you looking for?',//hintText: widget.hint ?? S.of(context).searchHint,
-      hintStyle: getRegularStyle(color: ColorManager.greyColor,fontSize: 13.sp),
+    return InputDecoration(
+      hintText:
+          'What are you looking for?', //hintText: widget.hint ?? S.of(context).searchHint,
+      hintStyle: getRegularStyle(
+        color: ColorManager.greyColor,
+        fontSize: 13.sp,
+      ),
       filled: true,
-      fillColor: ColorManager.productColor,//fillColor: Theme.of(context).colorScheme.surface,
+      fillColor: ColorManager
+          .productColor, //fillColor: Theme.of(context).colorScheme.surface,
       contentPadding: const EdgeInsets.all(0),
       border: const OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -101,7 +105,10 @@ class _SearchTextFieldState extends State<SearchTextField> {
           //   showFilterBottomSheet(context);
           // }
         },
-        child: SvgPicture.asset(IconsAssets.imagesFilter, fit: BoxFit.scaleDown),
+        child: SvgPicture.asset(
+          IconsAssets.imagesFilter,
+          fit: BoxFit.scaleDown,
+        ),
       ),
     );
   }

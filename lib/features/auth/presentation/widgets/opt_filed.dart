@@ -9,7 +9,11 @@ class OptFiled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< Updated upstream
     final boxSize = MediaQuery.of(context).size.width * .12;
+=======
+    final boxSize = MediaQuery.of(context).size.width * .2;
+>>>>>>> Stashed changes
     return SizedBox(
       width: boxSize,
       height: boxSize,
@@ -32,7 +36,10 @@ class OptFiled extends StatelessWidget {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: const BorderSide(color: ColorManager.secColor, width: 2),
+            borderSide: const BorderSide(
+              color: ColorManager.secColor,
+              width: 2,
+            ),
           ),
         ),
         onChanged: (value) {
