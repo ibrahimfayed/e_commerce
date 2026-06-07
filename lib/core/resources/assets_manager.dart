@@ -4,16 +4,14 @@ class ImageAssets {
   static const String launcherIcon = '$_imagePath/launcher_icon.png';
   static const String branding = '$_imagePath/branding.png';
   static const String android12splash = '$_imagePath/android12splash.png';
-     
 }
 
 class SvgAssets {
   static const String _svgPath = 'assets/svg';
- static const String onboardingBackground1 =
+  static const String onboardingBackground1 =
       '$_svgPath/onboardingBackground1.svg';
   static const String onboardingBackground2 =
       '$_svgPath/onboardingBackground2.svg';
-   
 }
 
 class IconsAssets {
@@ -33,6 +31,15 @@ class IconsAssets {
   static const String imagesVuesaxBoldUser = '$_iconPath/vuesax/bold/user.svg';
   static const String imagesVuesaxOutlineUser =
       '$_iconPath/vuesax/outline/user.svg';
-  static const String imagesSearchIcon = '$_iconPath/search_icon.svg'; 
+  static const String imagesSearchIcon = '$_iconPath/search_icon.svg';
   static const String imagesFilter = '$_iconPath/filter.svg';
+  static const String trash = '$_iconPath/trash.svg';
+}
+
+class AnimationsAssets {
+  static const String _svgPath = 'assets/animations';
+  static const String loading = '$_svgPath/Loading.json';
+  static const String noConnection = '$_svgPath/No_Connection.json';
+  static const String orderSuccess = '$_svgPath/order_success.json';
+  static const String emptyCart = '$_svgPath/cart empty.json';
 }
