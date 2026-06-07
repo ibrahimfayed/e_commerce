@@ -68,10 +68,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                   ],
                 ),
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
                 const SizedBox(height: 32),
                 CustomTextField(
                   borderBackgroundColor: ColorManager.border,

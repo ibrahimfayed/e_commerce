@@ -9,11 +9,7 @@ class OptFiled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< Updated upstream
     final boxSize = MediaQuery.of(context).size.width * .12;
-=======
-    final boxSize = MediaQuery.of(context).size.width * .2;
->>>>>>> Stashed changes
     return SizedBox(
       width: boxSize,
       height: boxSize,
@@ -22,10 +18,7 @@ class OptFiled extends StatelessWidget {
         keyboardType: TextInputType.number,
         maxLength: 1,
         controller: controller,
-        style: getBoldStyle(
-          color: ColorManager.black,
-          fontSize: 16,
-        ),
+        style: getBoldStyle(color: ColorManager.black, fontSize: 16),
         decoration: InputDecoration(
           counterText: '',
           filled: true,

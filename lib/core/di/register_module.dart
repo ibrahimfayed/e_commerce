@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:e_commerce/core/constants.dart';
+import 'package:e_commerce/core/di/service_locator.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,6 +12,20 @@ abstract class RegisterModule {
       BaseOptions(
         baseUrl: APIConstants.baseUrl,
         receiveDataWhenStatusError: true,
+      ),
+    );
+
+    dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (options, handler) {
+          final sharedPref = serviceLocator.get<SharedPreferences>();
+          final token = sharedPref.getString(CacheKeys.accessToken);
+          if (token != null) {
+            options.headers['Authorization'] = 'Bearer $token';
+            //options.headers[APIConstants.tokenHeaderKey] = token;
+          }
+          handler.next(options);
+        },
       ),
     );
 

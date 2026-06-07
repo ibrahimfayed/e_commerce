@@ -38,6 +38,18 @@ import 'package:e_commerce/features/auth/domain/use_cases/verify_email.dart'
     as _i853;
 import 'package:e_commerce/features/auth/presentation/cubit/auth_cubit.dart'
     as _i172;
+import 'package:e_commerce/features/categories/data/data_sources/remote/categories_remote_data_source.dart'
+    as _i730;
+import 'package:e_commerce/features/categories/data/data_sources/remote/categories_remote_data_source_impl.dart'
+    as _i476;
+import 'package:e_commerce/features/categories/data/repositories/category_repository_impl.dart'
+    as _i626;
+import 'package:e_commerce/features/categories/domain/repositories/category_repository.dart'
+    as _i845;
+import 'package:e_commerce/features/categories/domain/use_cases/get_categories_use_case.dart'
+    as _i430;
+import 'package:e_commerce/features/categories/presentation/cubit/category_cubit.dart'
+    as _i33;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
@@ -58,14 +70,24 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i881.AuthRemoteDataSource>(
       () => _i195.AuthApiRemoteDataSource(gh<_i361.Dio>()),
     );
+    gh.lazySingleton<_i730.CategoriesRemoteDataSource>(
+      () => _i476.CategoriesRemoteDataSourceImpl(gh<_i361.Dio>()),
+    );
     gh.singleton<_i371.AuthLocalDataSource>(
       () => _i365.AuthSharedPrefLocalDataSource(gh<_i460.SharedPreferences>()),
+    );
+    gh.lazySingleton<_i845.CategoryRepository>(
+      () =>
+          _i626.CategoryRepositoryImpl(gh<_i730.CategoriesRemoteDataSource>()),
     );
     gh.singleton<_i542.AuthRepository>(
       () => _i22.AuthRepositoryImpl(
         gh<_i881.AuthRemoteDataSource>(),
         gh<_i371.AuthLocalDataSource>(),
       ),
+    );
+    gh.lazySingleton<_i430.GetCategoriesUseCase>(
+      () => _i430.GetCategoriesUseCase(gh<_i845.CategoryRepository>()),
     );
     gh.singleton<_i563.ForgotPassword>(
       () => _i563.ForgotPassword(gh<_i542.AuthRepository>()),
@@ -96,6 +118,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i568.ResetPassword>(),
         gh<_i1065.ValidateOtp>(),
       ),
+    );
+    gh.lazySingleton<_i33.CategoryCubit>(
+      () => _i33.CategoryCubit(gh<_i430.GetCategoriesUseCase>()),
     );
     return this;
   }

@@ -40,16 +40,13 @@ class RouteGenerator {
       case Routes.main:
         return MaterialPageRoute(builder: (_) => const MainScreen());
       case Routes.search:
-<<<<<<< Updated upstream
-        return MaterialPageRoute(builder: (_) => const SearchScreen());   
+        return MaterialPageRoute(builder: (_) => const SearchScreen());
       case Routes.verifyEmail:
         final email = settings.arguments as String;
         return MaterialPageRoute(
           builder: (context) => VerifyEmailScreen(email: email),
         );
-=======
-        return MaterialPageRoute(builder: (_) => const SearchScreen());
->>>>>>> Stashed changes
+
       default:
         return null;
     }
