@@ -8,8 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoriesTab extends StatelessWidget {
   const CategoriesTab({super.key});
-  // final CategoryEntity category;
-  // final List<CategoryEntity> categories;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +60,6 @@ class CategoriesTab extends StatelessWidget {
 
           CategoriesListView(),
 
-          // const ProductsGridViewBlocConsumer(),
           SliverToBoxAdapter(child: SizedBox(height: 16.h)),
         ],
       ),

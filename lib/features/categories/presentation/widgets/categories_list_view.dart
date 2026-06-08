@@ -11,7 +11,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoriesListView extends StatelessWidget {
   const CategoriesListView({super.key});
-  //final List<CategoryModel> categories;
 
   @override
   Widget build(BuildContext context) {

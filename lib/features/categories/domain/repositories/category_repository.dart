@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/errors/failure.dart';
-import 'package:e_commerce/features/categories/data/models/category_model.dart';
+import 'package:e_commerce/features/categories/domain/entities/category_entity.dart';
 
 abstract class CategoryRepository {
-  Future<Either<Failure, List<CategoryModel>>> getCategories();
+  Future<Either<Failure, List<CategoryEntity>>> getCategories();
   
 }

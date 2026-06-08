@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/categories/data/models/category_model.dart';
+import 'package:e_commerce/features/categories/domain/entities/category_entity.dart';
 
 abstract class CategoryState {}
 
@@ -6,7 +6,7 @@ class CategoryInitial extends CategoryState {}
 
 class GetCategoriesLoading extends CategoryState {}
 class GetCategoriesSuccess extends CategoryState {
-  final List<CategoryModel> categories;
+  final List<CategoryEntity> categories;
   GetCategoriesSuccess(this.categories);
 }
 

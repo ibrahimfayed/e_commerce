@@ -1,13 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/resources/color_manager.dart';
 import 'package:e_commerce/core/resources/styles_manager.dart';
-import 'package:e_commerce/features/categories/data/models/category_model.dart';
+import 'package:e_commerce/features/categories/domain/entities/category_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard(this.category);
-  final CategoryModel category;
+  final CategoryEntity category;
 
   @override
   Widget build(BuildContext context) {
