@@ -1,3 +1,5 @@
+import 'package:e_commerce/core/product_datails_screen.dart';
+import 'package:e_commerce/core/review_screen.dart';
 import 'package:e_commerce/core/routes/routes.dart';
 import 'package:e_commerce/core/search_screen.dart';
 import 'package:e_commerce/features/auth/presentation/screens/forget_password_screen.dart';
@@ -7,6 +9,7 @@ import 'package:e_commerce/features/auth/presentation/screens/register_screen.da
 import 'package:e_commerce/features/auth/presentation/screens/verify_code_screen.dart';
 import 'package:e_commerce/core/main_screen.dart';
 import 'package:e_commerce/features/auth/presentation/screens/verify_email_screen.dart';
+import 'package:e_commerce/features/categories/presentation/screen/category_products_screen.dart';
 import 'package:e_commerce/features/onBoarding/presentation/screens/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -41,6 +44,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const MainScreen());
       case Routes.search:
         return MaterialPageRoute(builder: (_) => const SearchScreen());
+      case Routes.categoryProducts:
+        return MaterialPageRoute(builder: (_) => const CategoryProductsScreen());  
+      case Routes.productDetails:
+        return MaterialPageRoute(builder: (_) => const ProductDatailsScreen());
+      case Routes.review:
+        return MaterialPageRoute(builder: (_) => const ReviewScreen());    
       case Routes.verifyEmail:
         final email = settings.arguments as String;
         return MaterialPageRoute(

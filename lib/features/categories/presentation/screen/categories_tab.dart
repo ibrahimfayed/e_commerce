@@ -2,6 +2,7 @@ import 'package:e_commerce/core/resources/color_manager.dart';
 import 'package:e_commerce/core/resources/styles_manager.dart';
 import 'package:e_commerce/core/routes/routes.dart';
 import 'package:e_commerce/core/widgets/search_text_field.dart';
+import 'package:e_commerce/core/widgets/title_text_of_app_bar.dart';
 import 'package:e_commerce/features/categories/presentation/widgets/categories_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,16 +13,7 @@ class CategoriesTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Categories',
-          style: getBoldStyle(
-            color: ColorManager.backgroundDark,
-            fontSize: 19.sp,
-          ),
-        ),
-      ),
-
+      appBar: AppBar(title: TitleTextOfAppBar(text: 'Categories')),
       body: CustomScrollView(
         slivers: [
           // search field
@@ -58,7 +50,7 @@ class CategoriesTab extends StatelessWidget {
             ),
           ),
 
-          CategoriesListView(),
+          const CategoriesListView(),
 
           SliverToBoxAdapter(child: SizedBox(height: 16.h)),
         ],

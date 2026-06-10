@@ -32,9 +32,10 @@ class ECommerceApp extends StatelessWidget {
         builder: (_, _) => MaterialApp(
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RouteGenerator.getRoute,
-          initialRoute: AppPreferences.onboardingViewed
-              ? Routes.login
-              : Routes.onBoarding,
+          initialRoute: Routes.productDetails,
+          // AppPreferences.onboardingViewed
+          //     ? Routes.login
+          //     : Routes.onBoarding,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.light,

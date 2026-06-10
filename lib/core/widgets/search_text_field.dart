@@ -75,8 +75,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
 
   InputDecoration customDecoration(BuildContext context) {
     return InputDecoration(
-      hintText:
-          'What are you looking for?', //hintText: widget.hint ?? S.of(context).searchHint,
+      hintText: widget.hint, //hintText: widget.hint ?? S.of(context).searchHint,
       hintStyle: getRegularStyle(
         color: ColorManager.greyColor,
         fontSize: 13.sp,

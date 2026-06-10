@@ -14,7 +14,6 @@ class CategoriesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return SliverPadding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       sliver: BlocProvider(
@@ -34,7 +33,7 @@ class CategoriesListView extends StatelessWidget {
                     onTap: () {
                       Navigator.pushNamed(
                         context,
-                        Routes.search,
+                        Routes.categoryProducts,
                         //arguments: category.id
                         //arguments: categories[index].name,
                       );
