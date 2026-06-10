@@ -34,7 +34,8 @@ class CategoriesListView extends StatelessWidget {
                       Navigator.pushNamed(
                         context,
                         Routes.categoryProducts,
-                        //arguments: category.id
+                        arguments: state.categories[index].id,//here it is correct because it wrapped about listview not only one element (single widget)
+                        //arguments:category.id
                         //arguments: categories[index].name,
                       );
                     },
